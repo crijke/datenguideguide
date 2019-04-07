@@ -42,6 +42,7 @@ class Results extends React.Component {
     return (
       <div className="dg-results">
         <Nav tabs>
+
           <NavItem>
             <NavLink
               className={classnames({ active: this.state.activeTab === '1' })}
@@ -49,7 +50,7 @@ class Results extends React.Component {
                 this.toggle('1')
               }}
             >
-              GraphQL
+              JSON
             </NavLink>
           </NavItem>
           <NavItem>
@@ -59,7 +60,7 @@ class Results extends React.Component {
                 this.toggle('2')
               }}
             >
-              JSON
+              GraphQL
             </NavLink>
           </NavItem>
         </Nav>
@@ -70,14 +71,14 @@ class Results extends React.Component {
           <TabPane tabId="1">
             <Row>
               <Col sm="12">
-                <SyntaxHighlighter style={docco} language="graphql">{query}</SyntaxHighlighter>
+                <SyntaxHighlighter style={docco} language="json">{json}</SyntaxHighlighter>
               </Col>
             </Row>
           </TabPane>
           <TabPane tabId="2">
             <Row>
               <Col sm="12">
-                <SyntaxHighlighter style={docco} language="json">{json}</SyntaxHighlighter>
+                <SyntaxHighlighter style={docco} language="graphql">{query}</SyntaxHighlighter>
               </Col>
             </Row>
           </TabPane>
