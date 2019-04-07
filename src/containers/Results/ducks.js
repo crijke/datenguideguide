@@ -33,11 +33,7 @@ export const actions = {
   fetchData: payload => async (dispatch, getState) => {
     dispatch(actions.setGraphQLQuery(payload))
 
-    const parsedQuery = gql`
-      ${payload}
-    `
-
-    debugger
+    const parsedQuery = gql`${payload}`
 
     const json = await client.query({
       query: parsedQuery

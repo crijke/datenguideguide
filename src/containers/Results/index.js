@@ -7,7 +7,6 @@ import {
   NavLink,
   Row,
   Col,
-  Input
 } from 'reactstrap'
 import classnames from 'classnames'
 
@@ -71,14 +70,14 @@ class Results extends React.Component {
           <TabPane tabId="1">
             <Row>
               <Col sm="12">
-                <SyntaxHighlighter language="graphql">{query}</SyntaxHighlighter>
+                <SyntaxHighlighter style={docco} language="graphql">{query}</SyntaxHighlighter>
               </Col>
             </Row>
           </TabPane>
           <TabPane tabId="2">
             <Row>
               <Col sm="12">
-                <SyntaxHighlighter language="json">{json}</SyntaxHighlighter>
+                <SyntaxHighlighter style={docco} language="json">{json}</SyntaxHighlighter>
               </Col>
             </Row>
           </TabPane>

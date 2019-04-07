@@ -37,23 +37,21 @@ const mapAttributeArguments = args => {
 const mapValueAttributes = attributes =>
   attributes.map(
     attribute => `
-      ${attribute.valueattribute.value}${mapAttributeArguments(
+    ${attribute.valueattribute.value}${mapAttributeArguments(
       _.pickBy(attribute, (value, key) => key !== 'valueattribute')
     )}{
-        year
-        value
-      }`
+      year
+      value
+    }`
   )
 
-const getGraphQLQuery = values =>
-  `
-  {
-    region(id: "${values.region.value}"){
-      id
-      name${mapValueAttributes(values.valueattributes)}    
-    }
+const getGraphQLQuery = values => `{
+  region(id: "${values.region.value}"){
+    id
+    name${mapValueAttributes(values.valueattributes)}    
   }
-  `
+}
+`
 
 export const actions = {
   ...slice.actions,
