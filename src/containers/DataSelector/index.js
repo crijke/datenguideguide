@@ -6,6 +6,7 @@ import AsyncSelect from 'react-select/lib/Async'
 import Select from 'react-select'
 import { Field, reduxForm, change, FieldArray } from 'redux-form'
 import schema from '../../lib/schema.json'
+import mappings from '../../lib/mappings.json'
 
 import { actions } from './ducks'
 import { getStatistics } from '../../lib/schema'
@@ -78,7 +79,8 @@ class ValueAttribute extends Component {
                     })
                     return acc
                   }, [])
-                  this.setState({ classifiers })
+                  const sources = mappings[option.value].map(s => ({value: `R${s.name}`, label: `${s.name} - ${s.title_de}`}))
+                  this.setState({ classifiers, sources })
                   input.onChange(option)
                 }}
               />
@@ -105,11 +107,7 @@ class ValueAttribute extends Component {
                 component={({ input }) => (
                   <Select
                     isMulti
-                    options={[
-                      { value: 'chocolate', label: 'Chocolate' },
-                      { value: 'strawberry', label: 'Strawberry' },
-                      { value: 'vanilla', label: 'Vanilla' }
-                    ]}
+                    options={this.state.sources}
                     {...input}
                     onBlur={event => event.preventDefault()}
                     onChange={input.onChange}
