@@ -140,6 +140,7 @@ const ValueAttributeForm = ({ fields, meta: { error, submitFailed } }) => (
     <Button
       className="dg-valueattributeselector__addbutton"
       onClick={() => fields.push({})}
+      outline
     >
       Add
     </Button>
