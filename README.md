@@ -1,12 +1,12 @@
 # Datenguideguide
 
-Datenguideguide is a graphical query builder for datenguide. 
+Datenguideguide is a graphical query builder for datenguide.
 
-It allows users to build queries without knowledge of GraphQL, 
+It allows users to build queries without having to write GraphQL,
 generates the corresponding GraphQL query and returns the JSON 
 result from datenguide.
 
-Built at [Wahlsalon 2019](https://datengui.de/wahlsalon/)
+Created at [Wahlsalon 2019](https://datengui.de/wahlsalon/)
 
 ## Getting started
 
