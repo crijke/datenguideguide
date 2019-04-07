@@ -49,7 +49,7 @@ class ValueAttribute extends Component {
   }
 
   render() {
-    let { field } = this.props
+    const { field } = this.props
     return (
       <Card className="dg-valueattributeselector__statistic">
         <FormGroup>
@@ -79,7 +79,11 @@ class ValueAttribute extends Component {
                     })
                     return acc
                   }, [])
-                  const sources = mappings[option.value].map(s => ({value: `R${s.name}`, label: `${s.name} - ${s.title_de}`}))
+                  const sources = mappings[option.value].map(s => ({
+                    id: s.name,
+                    value: `R${s.name}`,
+                    label: `${s.name} - ${s.title_de}`
+                  }))
                   this.setState({ classifiers, sources })
                   input.onChange(option)
                 }}
@@ -87,9 +91,9 @@ class ValueAttribute extends Component {
             )}
           />
         </FormGroup>
-        <FormGroup>
-          <Row form>
-            <Col md={6}>
+        <Row form>
+          <Col>
+            <FormGroup>
               <Label for="year">Year</Label>
               <Field
                 name={`${field}.year`}
@@ -98,8 +102,12 @@ class ValueAttribute extends Component {
                   <Input {...input} type="text" id="exampleAddress" />
                 )}
               />
-            </Col>
-            <Col md={6}>
+            </FormGroup>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <FormGroup>
               <Label for="year">Source Statistics</Label>
               <Field
                 name={`${field}.statistics`}
@@ -114,9 +122,9 @@ class ValueAttribute extends Component {
                   />
                 )}
               />
-            </Col>
-          </Row>
-        </FormGroup>
+            </FormGroup>
+          </Col>
+        </Row>
         <FieldArray
           name={`${field}.classifiers`}
           component={ClassifierForm}
