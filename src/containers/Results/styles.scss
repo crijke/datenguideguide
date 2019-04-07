@@ -9,15 +9,12 @@
   padding-right: 10px;
   max-width: 800px;
   width: 100%;
-  h5 {
-    margin-top: 0;
-  }
-  textarea {
-    margin-top: 0px;
-    margin-bottom: 20px;
+  pre {
     height: 100%;
-    border: none;
-    border-radius: 0;
+  }
+  code {
+    height: 100%;
     font-family: menlo, monospace;
+    font-size: 16px;
   }
 }
