@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import AsyncSelect from 'react-select/lib/Async'
-import { Field, reduxForm, change } from 'redux-form'
+import AsyncSelect from 'react-select/async'
+import { change, Field, reduxForm } from 'redux-form'
 
 import { Card, FormGroup, Label } from 'reactstrap'
 
