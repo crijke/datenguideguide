@@ -56,7 +56,16 @@ const getGraphQLQuery = values => `{
 export const actions = {
   ...slice.actions,
   getData: () => (dispatch, getState) => {
-    const query = getGraphQLQuery(getState().form.dataselector.values)
+    const { values } = getState().form.dataselector
+    const query = getGraphQLQuery(values)
     dispatch(resultActions.fetchData(query))
+    dispatch(
+      resultActions.setCsvList({
+        region: values.region,
+        valueattributes: values.valueattributes.map(
+          ({ valueattribute }) => valueattribute
+        )
+      })
+    )
   }
 }

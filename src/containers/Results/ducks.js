@@ -14,7 +14,8 @@ const slice = createSlice({
   slice: 'dataselector',
   initialState: {
     query: '',
-    json: ''
+    json: '',
+    csvList: { region: '', valueattributes: [] }
   },
   reducers: {
     setGraphQLQuery: (state, action) => {
@@ -22,6 +23,9 @@ const slice = createSlice({
     },
     setJson: (state, action) => {
       state.json = action.payload
+    },
+    setCsvList: (state, action) => {
+      state.csvList = action.payload
     }
   }
 })
@@ -33,7 +37,9 @@ export const actions = {
   fetchData: payload => async (dispatch, getState) => {
     dispatch(actions.setGraphQLQuery(payload))
 
-    const parsedQuery = gql`${payload}`
+    const parsedQuery = gql`
+      ${payload}
+    `
 
     const json = await client.query({
       query: parsedQuery
